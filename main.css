@@ -66,12 +66,47 @@ body {
 .movie-rating {
     font-weight: 800;
     position: relative;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 .movie-rating::before {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url("./images/brilliant.png");
+    left: -20px;
+    width: 16px;
+    height: 16px;
+    background-image: url(./images/star1.png);
+    background-size: cover;
+    background-color: transparent;
+    content: "";
+}
+.movie-year {
+    font-weight: 800;
+    margin-right: 40px;
+    position: relative;
+}
+.movie-year::before {
+    position: absolute;
+    left: -20px;
+    width: 16px;
+    height: 16px;
+    background-image: url(./images/calendar.png);
+    background-size: cover;
+    background-color: transparent;
+    content: "";
+}
+.movie-duration {
+    font-weight: 800;
+    margin-right: 80px;
+    position: relative;
+}
+.movie-duration::before {
+    position: absolute;
+    left: -20px;
+    width: 16px;
+    height: 16px;
+    background-image: url(./images/clock.png);
+    background-size: cover;
+    background-color: transparent;
     content: "";
 }
 .movie-info {

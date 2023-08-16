@@ -39,7 +39,7 @@ function renderMovies(parametr) {
         
         elMovieImg.src = `https://i3.ytimg.com/vi/${item.ytid}/maxresdefault.jpg`;
         elMovieTitle.textContent = item.Title;
-        elMovieRating.textContent = `${item.imdb_rating} | `;
+        elMovieRating.textContent = item.imdb_rating;
         elMovieYear.textContent = item.movie_year;
         elMovieDuration.textContent = calculateTime(item.runtime);
         elMovieCategory.textContent = `Categoria: ${item.Categories}`;
@@ -52,7 +52,7 @@ function renderMovies(parametr) {
             var hour = Math.floor(minute / 60);
             var minu = Math.floor(minute % 60);
             
-            return ` | ${hour} Hrs ${minu} Min`
+            return `${hour} Hrs ${minu} Min`
         }
     });
 };

@@ -1,21 +1,20 @@
-// TASK 1
-// var numbers = [1, 3, 0, 5, 0, 7, 0];
+// // TASK 1
+// var numbers = [1, 3, 0, 5, 0, 7, 0,];
 // var newNumbers = [];
 // var zeros = [];
 
 // function zeroNumber() {
 //     for (const number of numbers) {
-//         if(!number == 0) {
-//             newNumbers.push(String(number))
+//         if(number != 0) {
+//             newNumbers.push(number)
 //         }else {
-//             zeros.push(String(number));
+//             zeros.push(number);
 //         }   
 //     }
-//     newNumbers.push(zeros);
-//     return newNumbers
+//     var result = newNumbers.concat(zeros);
+//     return result.join("")
 // }
-
-// console.log(zeroNumber().toString().concat());
+// console.log(zeroNumber());
 
 
 
@@ -34,31 +33,35 @@
 
 // TASK 3
 // var numbers = [1, 2, 0, -1, -2, 3, 4];
+// var num = 0;
 // for (const number of numbers) {
-//     var i = numbers.filter(number => {
-//         return number>0
-//     })
-//     var result = i.reduce(function(a, b){
-//         return a + b;
-//     })
-//     console.log(result);
+//     if(number > 0) {
+//         num += number
+//     }
 // }
+// console.log(num);
 
 
 
 // TASK 4
-var maxPrice = [
-    {name: "Ali", price:200},
-    {name: "Umid", price:800},
-    {name: "Sardor", price:400},
-];
+// var prices = [
+//     {name: "Ali", price:200},
+//     {name: "Umid", price:800},
+//     {name: "Sardor", price:400},
+// ];
 
-for (const iterator of maxPrice) {
-    var i = [];
-    
-    i.push(iterator.price);
-    console.log(i);
-}
+// var maximum = 0;
+// var owner ;
+// function maxPrice() {
+//     for (const iterator of prices) {
+//         if(iterator.price > maximum) {
+//             maximum = iterator.price;
+//             owner = iterator.name;
+//             console.log(owner, maximum);
+//         }
+//     }
+// }
+// maxPrice();
 
 
 

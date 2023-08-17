@@ -5,9 +5,6 @@ var elMainList = document.querySelector(".main-list");
 
 
 
-var newArr = [];
-
-
 function renderMovies(parametr) {
     
     elMainList.innerHTML = ""
@@ -29,13 +26,10 @@ function renderMovies(parametr) {
         elMovieCategory.className = "movie-category";
         var elMovieInfo = document.createElement("button");
         elMovieInfo.className = "movie-info";
-        var elMovieCategoriOptions = document.createElement("option");
-        elMovieCategoriOptions.textContent = "";
         
         
         elMainList.appendChild(elMovieItem);
         elMovieItem.append(elMovieImg ,elMovieTitle, elMovieRating, elMovieYear, elMovieDuration, elMovieCategory, elMovieInfo);
-        
         
         elMovieImg.src = `https://i3.ytimg.com/vi/${item.ytid}/maxresdefault.jpg`;
         elMovieTitle.textContent = item.Title;
@@ -57,30 +51,43 @@ function renderMovies(parametr) {
     });
 };
 
-// function searchOptions() {
-//     var newOptions = [];
-//     movies.forEach(option => {
-//         option.Categories.forEach(function(category) {
-//             if(!newOptions.includes(category)){
-//                 newOptions.push(category);
-//             }
-//         })
-//     })
-// };
+function searchOption() {
+    
+    var newOptions = [];
+    var newArr = [];
+    
+    movies.forEach(item => {
+        newOptions.push(item.Categories);
+        newOptions.forEach(option => {
+            if(!newArr.includes(option)) {
+                newArr.push(option)
+            }
+        })
+    })
+    newArr.forEach(ganre => {
+        var elMovieCategoriOptions = document.createElement("option");
+        elMovieCategoriOptions.textContent = ganre;
+        elMovieCategoriOptions.value = ganre;
+        
+        elMainSearchSelect.appendChild(elMovieCategoriOptions);
+        console.log(ganre);
+    })
+    
+}
 
-// searchOptions();
+searchOption();
 
 elMainSearchForm.addEventListener("submit", function(evt) {
     evt.preventDefault();
     
     var elMainSearchInputVal = elMainSearchInput.value.trim();
+    var elMainSearchSelectVal = elMainSearchSelect.value;
     
     var newRegex = new RegExp(elMainSearchInputVal, "gi");
     
     var resultArr = movies.filter(movie => {
-        return movie.Title.match(newRegex)
+        return movie.Title.match(newRegex) && (movie.Categories.includes(elMainSearchSelectVal) || elMainSearchSelectVal == "All" )
     })
-    // console.log(resultArr);
     if(resultArr.length > 0) {
         renderMovies(resultArr)
     }else (
